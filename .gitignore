@@ -1,0 +1,7 @@
+/__pycache__/*
+/venv/*
+/logs/*
+/.idea/*
+/.cachedir/*
+/*.sqlite3
+*/migrations/*
