@@ -8,7 +8,7 @@
 <div class="container">
 
 	<div class="row">
-		<div class="col-md-12"
+		<div class="col-md-12">
 		<h1>Анализ цен поставщиков</h1>
 	    </div>
 	</div>
@@ -20,8 +20,8 @@
 				<label class="my-1 mr-2" for="inlineFormCustomSelectPref">Поставщик:</label>
 				<select class="custom-select my-1 mr-sm-2" id="inlineFormCustomSelectPref" name="supplier_select">
 				    <option selected value="all">Все</option>
-				    {% for shipper_name in shipper_names %}
-				        <option value="{{ shipper_name.id }}">{{ supplier_model.shipper }}</option>
+				    {% for shipper_name in supplier_models %}
+				        <option value="{{ shipper_name.id }}">{{ shipper_name.shipper }}</option>
 				    {% endfor %}
 				</select>
 				<button type="submit" class="btn btn-primary my-1">Применить</button>
@@ -39,13 +39,13 @@
 		    		<td align="center">Цена, рублей</td>
 		    		<td align="center">Превышение цены, в  %</td>
 		    	</tr>
-		    	{% for product in products %}
+		    	{% for tmp in suppliers %}
 		    	<tr>
-		    		<td align="center">{{ supplier.product }}</td>
-		    		<td align="center">{{ supplier.shipper_name }}</td>
-		    		<td align="center">{{ supplier.supplier_model.max_price }}</td>
-		    		<td align="center">{{ supplier.price }}</td>
-		    		<td align="center">{% if supplier.price_excess %}{{ supplier.price_excess }}{% endif %}</td>
+		    		<td align="center">{{ tmp.product }}</td>
+		    		<td align="center">{{ tmp.shipper_name }}</td>
+		    		<td align="center">{{ tmp.shipper_name.max_price }}</td>
+		    		<td align="center">{{ tmp.price }}</td>
+		    		<td align="center">{% if tmp.price_excess %}{{ tmp.price_excess }}{% endif %}</td>
 		    	</tr>
 		    	{% endfor %}
 		    </table>

@@ -18,7 +18,7 @@ class Supplier(models.Model):
 
 	@property
 	def price_excess(self):
-		max_price = self.supplier_model.max_price
+		max_price = self.shipper_name.max_price
 		price = self.price
 
 		if price > max_price:

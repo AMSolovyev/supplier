@@ -9,7 +9,7 @@ def suppliers_table(request):
 	if (supplier_select is None or supplier_select=='all'):
 		suppliers = Supplier.objects.all().order_by('product')
 	else:
-		suppliers = Supplier.objects.filter(supplier_model=supplier_select).all()
+		suppliers = Supplier.objects.filter(shipper_name=supplier_select).all()
 
 	return render(request, 'supplier/suppliers_table.html', {'suppliers': suppliers,
 		                                                    'supplier_models': supplier_models
